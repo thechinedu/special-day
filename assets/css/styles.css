@@ -1,10 +1,4 @@
 @font-face {
-  font-family: "congrats";
-  src: url("../fonts/congrats.otf") format("opentype"),
-    url("../fonts/congrats.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "forever";
   src: url("../fonts/forever.otf") format("opentype"),
     url("../fonts/forever.ttf") format("truetype");
@@ -15,71 +9,15 @@
   src: url("../fonts/numbers.ttf") format("truetype");
 }
 
-:root {
-  /* Typography */
-
-  --base-font-size: 1rem;
-  --typescale-ratio: 1.333;
-
-  --small: calc(var(--base-font-size) / var(--typescale-ratio));
-  --smaller: calc(var(--small) / var(--typescale-ratio));
-
-  --medium: calc(var(--base-font-size) * var(--typescale-ratio));
-
-  --large: calc(var(--medium) * var(--typescale-ratio));
-  --larger: calc(var(--large) * var(--typescale-ratio));
-  --x-large: calc(var(--larger) * var(--typescale-ratio));
-  --xx-large: calc(var(--x-large) * var(--typescale-ratio));
-
-  /* Grid & Layout primitives */
-
-  /* Colors */
-
-  --black: #262626;
-  --blue: #0095f6;
-  --off-white: #fafafa;
-  --white: #ffffff;
-  --gray: #575757;
-  --lighter-gray: #dbdbdb;
-  --tomato: #e44232;
-
-  /* Spacing */
-
-  --space-scale: 8px;
-
-  --spacer-0: 0;
-  --spacer-1\/2: calc(var(--space-scale) / 2);
-
-  --spacer-1: var(--space-scale);
-  --spacer-2: calc(var(--space-scale) * 2);
-  --spacer-3: calc(var(--space-scale) * 3);
-  --spacer-4: calc(var(--space-scale) * 4);
-  --spacer-5: calc(var(--space-scale) * 5);
-  --spacer-6: calc(var(--space-scale) * 6);
-  --spacer-7: calc(var(--space-scale) * 7);
-  --spacer-8: calc(var(--space-scale) * 8);
-  --spacer-9: calc(var(--space-scale) * 9);
-  --spacer-10: calc(var(--space-scale) * 10);
-  --spacer-11: calc(var(--space-scale) * 11);
-  --spacer-12: calc(var(--space-scale) * 12);
-
-  /* Icons */
-
-  /* Buttons */
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: var(--base-font-size);
-  background-color: var(--white);
-  color: var(--black);
+  font-size: 1rem;
   height: 100%;
-  background-color: var(--black);
-  color: var(--white);
+  color: #fff;
 }
 
 video {
@@ -91,15 +29,28 @@ video {
   left: 0;
 }
 
+.bg-wrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
 .icon-wrapper {
   display: flex;
+  padding-bottom: 16px;
+  position: relative;
+  border-bottom: 2px dashed #fff;
+}
+
+.icon-wrapper img {
+  margin-right: 8px;
 }
 
 .container {
-  /* display: flex; */
-  /* align-items: center; */
+  height: 100%;
   position: relative;
-  padding: var(--spacer-2);
+  padding: 16px;
   margin: 0 auto;
 }
 
@@ -107,16 +58,43 @@ video {
   flex: 1;
 }
 
+.container > div:nth-child(2) {
+  flex: 2;
+}
+
 h1 {
   font-family: "forever", cursive;
-  font-size: calc(var(--xx-large) * var(--typescale-ratio));
+  font-size: 6rem;
 }
 
 h2 {
   font-family: "numbers", cursive;
-  font-size: calc(var(--xx-large) * var(--typescale-ratio));
+  font-size: 6rem;
 }
 
 p {
   font-style: italic;
+  margin: 24px 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .container .icon-wrapper {
+    flex-basis: 100%;
+  }
+
+  .container > div:nth-child(3) p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
